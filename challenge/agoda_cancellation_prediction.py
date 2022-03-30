@@ -1,9 +1,14 @@
 from challenge.agoda_cancellation_estimator import AgodaCancellationEstimator
+from challenge.preprocessing import Preprocess
 from IMLearn.utils import split_train_test
+from IMLearn.base import BaseEstimator
 
 import numpy as np
 import pandas as pd
 
+
+TRAIN_DATASET = "../datasets/agoda_cancellation_train.csv"
+TEST_DATASET = "../datasets/agoda_cancellation_test.csv"
 
 def load_data(filename: str):
     """
