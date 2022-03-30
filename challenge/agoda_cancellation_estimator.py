@@ -19,8 +19,8 @@ class AgodaCancellationEstimator(BaseEstimator):
     ORIGINAL_DATES_COLS = ['X_booking_datetime_original', 'X_checkin_date_original']
     Y_COLUMNS = ['time_to_cancel', 'cancel_time_to_checkin', 'real_cancellation_datetime']
 
-    MIN_DATE_THRESHOLD = '2018-12-06'
-    MAX_DATE_THRESHOLD = '2018-12-14'
+    MIN_DATE_THRESHOLD = '2018-12-05'
+    MAX_DATE_THRESHOLD = '2018-12-15'
 
     N_NEIGHBORS = 5
 

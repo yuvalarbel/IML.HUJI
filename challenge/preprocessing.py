@@ -10,7 +10,7 @@ import pandas as pd
 from sklearn import preprocessing
 
 # Project Imports
-import consts
+import challenge.consts as consts
 
 
 # TODO: Columns:
