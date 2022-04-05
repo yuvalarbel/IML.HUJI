@@ -36,16 +36,16 @@ def split_train_test(X: pd.DataFrame, y: pd.Series, train_proportion: float = .7
     m = X.shape[0]
     train_size = int(m * train_proportion)
 
-    shuffled_indices = np.arange(m)
+    shuffled_indices = np.array(list(X.index))
     np.random.shuffle(shuffled_indices)
 
     X_shuffled = X.loc[shuffled_indices]
     y_shuffled = y.loc[shuffled_indices]
 
-    train_X = X_shuffled[:train_size]
-    train_y = y_shuffled[:train_size]
-    test_X = X_shuffled[train_size:]
-    test_y = y_shuffled[train_size:]
+    train_X = X_shuffled.iloc[:train_size]
+    train_y = y_shuffled.iloc[:train_size]
+    test_X = X_shuffled.iloc[train_size:]
+    test_y = y_shuffled.iloc[train_size:]
 
     return train_X, train_y, test_X, test_y
 

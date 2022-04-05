@@ -13,7 +13,7 @@ class LinearRegression(BaseEstimator):
     Solving Ordinary Least Squares optimization problem
     """
 
-    def __init__(self, include_intercept: bool = True) -> LinearRegression:
+    def __init__(self, include_intercept: bool = True) -> None:
         """
         Instantiate a linear regression estimator
 
@@ -34,6 +34,11 @@ class LinearRegression(BaseEstimator):
         super().__init__()
         self.include_intercept_, self.coefs_ = include_intercept, None
 
+    def _prepare_X(self, X):
+        if self.include_intercept_:
+            X = np.hstack((np.ones((X.shape[0], 1)), X))
+        return X
+
     def _fit(self, X: np.ndarray, y: np.ndarray) -> NoReturn:
         """
         Fit Least Squares model to given samples
@@ -50,9 +55,7 @@ class LinearRegression(BaseEstimator):
         -----
         Fits model with or without an intercept depending on value of `self.include_intercept_`
         """
-        if self.include_intercept_:
-            X = np.hstack((np.ones((X.shape[0], 1)), X))
-
+        X = self._prepare_X(X)
         self.coefs_ = np.linalg.pinv(X) @ y
 
     def _predict(self, X: np.ndarray) -> np.ndarray:
@@ -69,9 +72,7 @@ class LinearRegression(BaseEstimator):
         responses : ndarray of shape (n_samples, )
             Predicted responses of given samples
         """
-        if self.include_intercept_:
-            X = np.hstack((np.ones((X.shape[0], 1)), X))
-
+        X = self._prepare_X(X)
         return X @ self.coefs_
 
     def _loss(self, X: np.ndarray, y: np.ndarray) -> float:

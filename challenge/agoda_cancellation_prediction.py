@@ -77,9 +77,7 @@ def print_accuracy_scores(predicted_values: np.ndarray, actual_values: np.ndarra
     # print("F1-score:", 2 * tp / (2 * tp + fp + fn))
 
 
-if __name__ == '__main__':
-    final = True
-
+def run(final):
     # Load data and time it
     start_time = datetime.datetime.now()
     df, cancellation_labels = load_data(TRAIN_DATASET, True)
@@ -105,3 +103,8 @@ if __name__ == '__main__':
 
     # Store model predictions over test set
     evaluate_and_export(estimator, test_X, "205732621_208785923_314971375.csv")
+
+
+if __name__ == '__main__':
+    run(True)
+
