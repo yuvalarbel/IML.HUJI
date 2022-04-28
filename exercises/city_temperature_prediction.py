@@ -41,7 +41,7 @@ if __name__ == '__main__':
     plt.title("Temperature vs Day of year")
     # add a legend
     plt.colorbar(label="Year", ticks=np.unique(il_data.Year))
-    plt.savefig("./plots/city_temperature_scatter.png")
+    plt.savefig("./plots/ex2/city_temperature_scatter.png")
     plt.close()
 
     grouped_by_month = il_data.groupby("Month")
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     plt.xlabel("Month")
     plt.ylabel("Standard deviation of temperature")
     plt.title("Standard deviation of temperature by month")
-    plt.savefig("./plots/temp_stds_by_month.png")
+    plt.savefig("./plots/ex2/temp_stds_by_month.png")
     plt.close()
 
     # Question 3 - Exploring differences between countries
@@ -81,7 +81,7 @@ if __name__ == '__main__':
     plt.title("Average monthly temperature by country")
     ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
 
-    plt.savefig("./plots/temp_avgs_by_country_month.png")
+    plt.savefig("./plots/ex2/temp_avgs_by_country_month.png")
     plt.close()
 
     # Question 4 - Fitting model for different values of `k`
@@ -106,7 +106,7 @@ if __name__ == '__main__':
     plt.xlabel("k")
     plt.ylabel("Test error")
     plt.title("Test error by k")
-    plt.savefig("./plots/test_error_by_k.png")
+    plt.savefig("./plots/ex2/test_error_by_k.png")
     plt.close()
 
     # Question 5 - Evaluating fitted model on different countries
@@ -123,5 +123,5 @@ if __name__ == '__main__':
     plt.xlabel("Country")
     plt.ylabel("Model error")
     plt.title(f"Model error by country (k={best_k})")
-    plt.savefig("./plots/model_error_by_country.png")
+    plt.savefig("./plots/ex2/model_error_by_country.png")
     plt.close()

@@ -78,7 +78,7 @@ if __name__ == '__main__':
     data, labels = load_data("../datasets/house_prices.csv")
 
     # Question 2 - Feature evaluation with respect to response
-    feature_evaluation(data, labels, "./plots/features")
+    feature_evaluation(data, labels, "./plots/ex2/features")
 
     # Question 3 - Split samples into training- and testing sets.
     train_X, train_y, test_X, test_y = split_train_test(data, labels, train_proportion=0.2)
@@ -115,7 +115,7 @@ if __name__ == '__main__':
     plt.xlabel("Training Proportion (%)")
     plt.ylabel("Average Test Loss")
     plt.title("Average Test Loss as a Function of Training Proportion")
-    plt.savefig("./plots/train_proportion_vs_test_loss.png")
+    plt.savefig("./plots/ex2/train_proportion_vs_test_loss.png")
     plt.close()
 
     print("Done")
